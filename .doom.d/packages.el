@@ -51,3 +51,6 @@
 
 (package! shell-pop)
 (package! evil-tutor)
+(package! markdown-mode)
+(package! grip-mode)
+(package! ox-gfm)
