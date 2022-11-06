@@ -81,6 +81,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Load private things
+(load! "priv.el")
+
 ;; Emacs now plays with the clipboard
 (setq select-enable-clipboard t)
 
@@ -113,3 +116,6 @@
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(setq grip-github-user "Spamakin")
+(setq grip-update-after-change nil)
