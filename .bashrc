@@ -177,3 +177,6 @@ export GUROBI_HOME="${HOME}/opt/gurobi950/linux64"
 export GRB_LICENSE_FILE="${HOME}/gurobi.lic"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
+# golang
+export PATH=$PATH:/usr/local/go/bin
