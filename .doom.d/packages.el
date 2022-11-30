@@ -54,3 +54,4 @@
 (package! markdown-mode)
 (package! grip-mode)
 (package! ox-gfm)
+(package! sage-shell-mode)
