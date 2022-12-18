@@ -1,3 +1,12 @@
 .cfg
+
+# private files
 .priv_bash_aliases
 .doom./priv.el
+
+# homework template
+main.aux
+main.log
+main.out
+main.pdf
+.auctex-auto/main.el
