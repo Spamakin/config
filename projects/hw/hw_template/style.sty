@@ -57,6 +57,7 @@
 \usepackage{xfrac}
 \DTMsetdatestyle{mdyy}
 \usepackage{hyperref}
+\usepackage{cite}
 
 % -------------------------------------------------------------------------
 %  Formatting junk
@@ -83,6 +84,15 @@
     []
 \titlespacing{\subsection}
     {5pt}                           % left
+    {0.5ex plus 1ex minus .2ex}     % before (idk what the plus minus is)
+    {10pt}                          % after
+
+\titleformat{\subsubsection}[runin]
+    {\normalfont\normalsize\bfseries}
+    {}{0em}{}
+    []
+\titlespacing{\subsubsection}
+    {10pt}                           % left
     {0.5ex plus 1ex minus .2ex}     % before (idk what the plus minus is)
     {10pt}                          % after
 
@@ -240,7 +250,6 @@ qed=\qedsymbol{}
 \def\Liminf{\liminf\limits}
 \def\Sfrac#1#2{{\displaystyle\sfrac{#1}{#2}}}
 
-
 % ---- SYMBOLS ----
 \def\N{\mathbb{N}}
 \def\Z{\mathbb{Z}}
@@ -270,7 +279,7 @@ qed=\qedsymbol{}
 \def\sample{\overset{\$}{\from}}
 \def\notimplies{\centernot\implies}
 \def\acts{\curvearrowright}
-\def\normal\trianglelefteq
+\def\normal{\trianglelefteq}
 \def\pluseq{\mathrel{+}=}
 \def\timeseq{\mathrel{*}=}
 \def\minuseq{\mathrel{-}=}
