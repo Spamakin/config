@@ -42,6 +42,7 @@
 
 \let\circledS\undefined     % Use circledS from amssymb
 \usepackage{amsmath, amsthm, stmaryrd, mathtools, physics}
+\usepackage{thmtools}
 \usepackage[dvipsnames,usenames,cmyk]{xcolor}
 \usepackage{indentfirst}    % Honestly not sure why this isn't default behavior
 \usepackage{centernot}
@@ -50,12 +51,12 @@
 \usepackage{tabularx}
 \usepackage{titling}
 \usepackage{enumerate}
-\usepackage{hyperref}
 \usepackage{optidef}
 \usepackage{datetime2}
 \DTMsetup{datesep=/}
 \usepackage{xfrac}
 \DTMsetdatestyle{mdyy}
+\usepackage{hyperref}
 
 % -------------------------------------------------------------------------
 %  Formatting junk
@@ -88,7 +89,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=cyan,
 }
 
@@ -112,25 +113,31 @@
 }
 
 % ---- THEOREM & LEMMA ENVIRONMENTS ----
-\newtheoremstyle{plain}
-  {\topsep}                                     % ABOVESPACE
-  {\topsep}                                     % BELOWSPACE
-  {}                                            % BODYFONT
-  {0pt}                                         % INDENT
-  {\bfseries}                                   % HEADFONT
-  {: }                                          % HEADPUNCT
-  {5pt plus 1pt minus 1pt}                      % HEADSPACE
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}  % CUSTOM-HEAD-SPEC
+\declaretheoremstyle[
+spaceabove=\topsep,
+spacebelow=\topsep,
+headindent=0pt,
+headfont=\bfseries,
+postheadspace=5pt plus 1pt minus 1pt,
+headpunct=\(\boldmath \colon\),
+notefont=\bfseries,
+]{theorem}
 
-\newtheorem{lem}{Lemma}
-\newtheorem*{lem*}{Lemma}
+\declaretheoremstyle[
+spaceabove=\topsep,
+spacebelow=\topsep,
+headindent=0pt,
+headfont=\bfseries,
+postheadspace=5pt plus 1pt minus 1pt,
+headpunct=\(\boldmath \colon\),
+notefont=\bfseries,
+qed=\qedsymbol{}
+]{solution}
 
-\newtheorem{pf}{Proof}
-\newtheorem*{pf*}{Proof}
-
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{subtheorem}{\quad}[theorem]         %\quad is an indent parameter
+\declaretheorem[style=theorem, name=Theorem]{thrm}
+\declaretheorem[style=theorem, name=Lemma]{lem}
+\declaretheorem[style=theorem, name=Exercise]{exercise}
+\declaretheorem[style=solution, name=Proof]{pf}
 
 % -------------------------------------------------------------------------
 %  Common abbreviations and words with accents
@@ -139,8 +146,8 @@
 
 % ---- LATIN ----
 \def\etal{et~al.}
-\def\ie{i.e.}		
-\def\eg{e.g.}		
+\def\ie{i.e.}
+\def\eg{e.g.}
 \def\vitae{vit\ae{}}
 \def\apriori{a~priori}
 \def\aposteriori{a~posteriori}  % I did not know this was a thing
@@ -152,7 +159,7 @@
 \def\Bochis{Bochi\c{s}}		                                    % Daciana
 \def\Boruvka{Bor\.uvka}		                                    % ...'s MST algorithm
 \def\Bragger{Br\"agger}
-\def\Bronnimann{Br\"onnimann}   
+\def\Bronnimann{Br\"onnimann}
 \def\Herve{Herv\'e}
 \def\Bruckner{Br\"uckner}
 \def\Caratheodory{Carath\'eodory}	                            % Constantin
@@ -175,7 +182,7 @@
 \def\Mobius{M\"obius}		                                    % ... strip/transformation/function
 \def\Mucke{M\"ucke}		                                        % Ernst
 \def\ODunliang{\'O'D\'unliang}
-\def\Oleinik{Ole\u{\i}nik} 
+\def\Oleinik{Ole\u{\i}nik}
 \def\Janos{J\'anos}                                             % Pach
 \def\Palasti{Pal\'asti}
 \def\Belen{Bel\'en}	                                            % Palop
@@ -185,13 +192,13 @@
 \def\Poincare{Poincar\'e}	                                    % ... duality/halfplane
 \def\Gunter{G\"unter}                                           % Rote, Ziegler
 \def\Sacristan{Sacrist\'an}	                                    % Vera
-\def\Saskin{\v{S}a\v{s}kin}                         
-\def\Schomer{Sch\"omer}                         
+\def\Saskin{\v{S}a\v{s}kin}
+\def\Schomer{Sch\"omer}
 \def\Schonhardt{Sch\"onhardt}	                                % ... polyhedron
-\def\Sos{S\'os}                         
+\def\Sos{S\'os}
 \def\Stackel{St\"ackel}		                                    % Paul
-\def\Szekely{Sz\'ekely}                         
-\def\Szemeredi{Szemer\'edi}                         
+\def\Szekely{Sz\'ekely}
+\def\Szemeredi{Szemer\'edi}
 \def\Toth{T\'{o}th}		                                        % Geza
 \def\Turan{Tur\'an}
 \def\Ungor{\"Ung\"or}		                                    % Alper
@@ -316,7 +323,7 @@
 % Enclosures
 % -------------------------------------------------------------------------
 
-% magic for cycle notation 
+% magic for cycle notation
 % https://tex.stackexchange.com/questions/135868/permutation-cycle-notation
 \usepackage{listofitems}
 \newcommand\cycle[2][~]{%
@@ -352,7 +359,7 @@
 % Turing Machines only take strings, we should fix that eventually
 \newcommand\encode[1]{%
     \left\langle #1 \right\rangle
-}   
+}
 
 \newcommand\floor[1]{%
     \left\lfloor #1 \right\rfloor
@@ -415,7 +422,7 @@
     \fbox {
         \begin{minipage}{#1}
         #2
-        \end{minipage}  
+        \end{minipage}
     }
 }
 
