@@ -1,0 +1,9 @@
+# Define a level of indentation as 2 spaces
+TabSize = 2
+
+# This is where you throw in warnings to disable
+CmdLine
+{
+    -n3
+    -n1
+}
