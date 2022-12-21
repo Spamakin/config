@@ -51,6 +51,7 @@
 \usepackage{tabularx}
 \usepackage{titling}
 \usepackage{enumerate}
+\usepackage{listofitems}
 \usepackage{optidef}
 \usepackage{datetime2}
 \DTMsetup{datesep=/}
@@ -297,37 +298,37 @@ qed=\qedsymbol{}
 
 % Constants no longer matter
 \newcommand\bigO[1]{%
-    O\kern-1.5pt\left( #1 \right)
+    O\kern-1.5pt\left(#1\right)
 }
 
 \newcommand\littleo[1]{%
-    o\kern-1.5pt\left( #1 \right)
+    o\kern-1.5pt\left(#1\right)
 }
 
 \newcommand\bigTheta[1]{%
-    \theta\kern-1.5pt\left( #1 \right)
+    \theta\kern-1.5pt\left(#1\right)
 }
 
 \newcommand\bigOmega[1]{%
-    \Omega\kern-1.5pt\left( #1 \right)
+    \Omega\kern-1.5pt\left(#1\right)
 }
 
 % logarithms no longer matter
 \newcommand\bigOT[1]{%
-    \widetilde{O}\kern-1.5pt\left( #1 \right)
+    \widetilde{O}\kern-1.5pt\left(#1\right)
 }
 
 \newcommand\littleoT[1]{%
-    \tilde{o}\kern-1.5pt\left( #1 \right)
+    \tilde{o}\kern-1.5pt\left(#1\right)
 }
 
 % polynomials no longer matter
 \newcommand\bigOStar[1]{%
-    {O^{*}}\kern-1.5pt\left( #1 \right)
+    {O^{*}}\kern-1.5pt\left(#1\right)
 }
 
 \newcommand\littleoStar[1]{%
-    {o^{*}}\kern-1.5pt\left( #1 \right)
+    {o^{*}}\kern-1.5pt\left(#1\right)
 }
 
 % -------------------------------------------------------------------------
@@ -336,10 +337,9 @@ qed=\qedsymbol{}
 
 % magic for cycle notation
 % https://tex.stackexchange.com/questions/135868/permutation-cycle-notation
-\usepackage{listofitems}
 \newcommand\cycle[2][~]{%
   \readlist\thecycle{#2}%
-  (\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i})%
+  \left(\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i}\right)%
 }
 
 % I like \mathbb{P} for probability but go nuts, you can renew this
@@ -368,9 +368,13 @@ qed=\qedsymbol{}
 }
 
 % Turing Machines only take strings, we should fix that eventually
-\newcommand\encode[1]{%
-    \left\langle #1 \right\rangle
+\newcommand\encode[2][~]{%
+  \readlist\thecycle{#2}%
+  \left\langle\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i}\right\rangle%
 }
+
+% We use the same notation for finitely generated groups / ideals
+\newcommand{\gen}{\encode}
 
 \newcommand\floor[1]{%
     \left\lfloor #1 \right\rfloor
