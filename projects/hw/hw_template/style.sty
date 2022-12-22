@@ -368,9 +368,13 @@ qed=\qedsymbol{}
 }
 
 % Turing Machines only take strings, we should fix that eventually
-\newcommand\encode[2][~]{%
-  \readlist\thecycle{#2}%
-  \left\langle\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i}\right\rangle%
+{\catcode`\|=\active
+  \xdef\encode{\protect\expandafter\noexpand\csname encode \endcsname}
+  \expandafter\gdef\csname encode \endcsname#1{\left\langle%
+     \ifx\SavedDoubleVert\relax \let\SavedDoubleVert\|\fi
+     \,{\let\|\SetDoubleVert
+     \mathcode`\|32768\let|\SetVert
+     #1}\,\right\rangle}
 }
 
 % We use the same notation for finitely generated groups / ideals
