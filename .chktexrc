@@ -4,6 +4,7 @@ TabSize = 2
 # This is where you throw in warnings to disable
 CmdLine
 {
-    -n3
     -n1
+    -n3
+    -n11
 }

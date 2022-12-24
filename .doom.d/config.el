@@ -119,3 +119,8 @@
 
 (setq grip-github-user "Spamakin")
 (setq grip-update-after-change nil)
+
+;; Unless specified, gimme indent level 4
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
