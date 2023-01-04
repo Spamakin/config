@@ -55,3 +55,4 @@
 (package! grip-mode)
 (package! ox-gfm)
 (package! sage-shell-mode)
+(package! all-the-icons)

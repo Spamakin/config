@@ -1,1 +1,4 @@
-$ENV{'TZ'}='America/Chicago';
+$pdf_mode = 1;
+$ENV{'TZ'} = 'America/Chicago';
+$clean_ext = "bbl run.xml";
+$pdf_previewer = 'start okular';

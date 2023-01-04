@@ -100,6 +100,16 @@
     (other-window 1)
     (+vterm/here default-directory)))
 
+
+;; Command to open vterm in a right window
+(defun vterm/split-left ()
+  "Create a new vterm window to the left of the current one."
+  (interactive)
+  (let* ((ignore-window-parameters t)
+         (dedicated-p (window-dedicated-p)))
+    (split-window-horizontally)
+    (+vterm/here default-directory)))
+
 ;; vsplit vterm when vterm is already open
 (map! :map vterm-mode-map
       "C-x 3" #'vterm/split-right)
@@ -120,7 +130,7 @@
 (setq grip-github-user "Spamakin")
 (setq grip-update-after-change nil)
 
-;; Unless specified, gimme indent level 4
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
+(setq doc-view-resolution 200)
+
+;; Modeline settings
+(setq doom-modeline-buffer-file-name-style 'buffer-name)
