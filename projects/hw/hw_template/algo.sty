@@ -44,12 +44,13 @@
 %   ONLY the lines with \label{} are counted *and* numbered
 %   Numbering resets every time you use the environment
 %   TODO: Make this nicer to use (but it looks nice at least)
+%         Also figure out how to get labelling to work with \ref and \cref
 % ----------------------------------------------------------------------
 \usepackage{ntabbing}
 
 \def\begin@lgon[#1]{
     \begin{minipage}{1in}\normalfont\renewcommand{\baselinestretch}{#1}\tiny\normalsize
-    \begin{ntabbing}
+    \begin{ntabbing}\reset
     \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill
 }
 \def\end@lgon{
