@@ -7,6 +7,18 @@
 %  From https://jeffe.cs.illinois.edu/pubs/latex.html 
 %  My own changes:
 %   Added optional line spacing param \begin{algo}[0.69pt]
+%
+%   Added line number version \begin{nalgo}[4.20pt]
+%
+%   Now featuring optional bold keywords!
+%       \newcommand{\for}{\textbf{for}}
+%       \newcommand{\while}{\textbf{while}}
+%       \newcommand{\iif}{\textbf{iif}}         % It's iif, not if
+%       \newcommand{\elseif}{\textbf{else if}}
+%       \newcommand{\elif}{\textbf{elif}}
+%       \newcommand{\eelse}{\textbf{eelse}}     % It's eelse, not else
+%       \newcommand{\return}{\textbf{return}}
+%   Remember to add a control space \
 % ----------------------------------------------------------------------
 
 \def\begin@lgo[#1]{
@@ -29,7 +41,15 @@
     \end{tabular}
 }
 
+% If you add to this, add to nalgo also
 \newenvironment{algo}[1][1]{
+    \newcommand{\for}{\textbf{for}}
+    \newcommand{\while}{\textbf{while}}
+    \newcommand{\iif}{\textbf{iif}}
+    \newcommand{\elseif}{\textbf{else if}}
+    \newcommand{\elif}{\textbf{elif}}
+    \newcommand{\eelse}{\textbf{eelse}}
+    \newcommand{\return}{\textbf{return}}
     \begin{center}
     \small
     \begin{algorithm}{#1}
@@ -43,8 +63,8 @@
 %  Usage:
 %   ONLY the lines with \label{} are counted *and* numbered
 %   Numbering resets every time you use the environment
+%   Also work with cleveref
 %   TODO: Make this nicer to use (but it looks nice at least)
-%         Also figure out how to get labelling to work with \ref and \cref
 % ----------------------------------------------------------------------
 \usepackage{ntabbing}
 
@@ -68,7 +88,15 @@
     \end{tabular}
 }
 
+% If you add to this, add to nalgo also
 \newenvironment{nalgo}[1][1]{
+    \newcommand{\for}{\textbf{for}}
+    \newcommand{\while}{\textbf{while}}
+    \newcommand{\iif}{\textbf{iif}}
+    \newcommand{\elseif}{\textbf{else if}}
+    \newcommand{\elif}{\textbf{elif}}
+    \newcommand{\eelse}{\textbf{eelse}}
+    \newcommand{\return}{\textbf{return}}
     \begin{center}
     \small
     \begin{nalgorithm}{#1}
