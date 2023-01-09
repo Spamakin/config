@@ -13,27 +13,11 @@
 % -------------------------------------------------------------------------
 
 % INCONSOLATA FONT + PACKAGES
+% I don't understand which one of these does what
 \usepackage{inconsolata}
 \usepackage[charter, cal=cmcal]{mathdesign}    % FIXME: get rid of these warnings
 \usepackage{sourcesanspro}
 \usepackage[scaled=.96, sups]{XCharter}
-
-\usepackage{microtype}  % Do I notice a difference? Probably not
-
-% Lowercase mathcal \mathcalb
-% From https://sarielhp.org/blog/2022/01/11/mathcal-for-small-letters/
-\DeclareFontFamily{U}{BOONDOX-calo}{\skewchar\font=45 }
-\DeclareFontShape{U}{BOONDOX-calo}{m}{n}{
-  <-> s*[1.05] BOONDOX-r-calo}{}
-\DeclareFontShape{U}{BOONDOX-calo}{b}{n}{
-  <-> s*[1.05] BOONDOX-b-calo}{}
-\DeclareMathAlphabet{\mathcalb}{U}{BOONDOX-calo}{m}{n}
-\SetMathAlphabet{\mathcalb}{bold}{U}{BOONDOX-calo}{b}{n}
-\DeclareMathAlphabet{\mathbcalb}{U}{BOONDOX-calo}{b}{n}
-
-% Symbols from TAOCP
-% ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/manfnt/manfnt.pdf
-\usepackage{manfnt}
 
 % -------------------------------------------------------------------------
 %  Packages
@@ -55,11 +39,12 @@
 \usepackage{optidef}
 \usepackage{datetime2}
 \DTMsetup{datesep=/}
-\usepackage{xfrac}
 \DTMsetdatestyle{mdyy}
+\usepackage{xfrac}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage[backend=biber, style=alphabetic]{biblatex}
+\usepackage{microtype}  % Do I notice a difference? Probably not
 
 % -------------------------------------------------------------------------
 %  Formatting junk
@@ -356,6 +341,7 @@ qed=\qedsymbol{}
 
 % Probability and Expectation with ability for conditioning
 % Try \Prob{x | y} versus \Prob{x} and \EV{x | y} versus \EV{x}
+% Also for encodings / presentations
 % Source code stolen from braket.sty
 {\catcode`\|=\active
   \xdef\Prob{\protect\expandafter\noexpand\csname Prob \endcsname}
@@ -397,18 +383,15 @@ qed=\qedsymbol{}
 }
 
 % -------------------------------------------------------------------------
-% Various utilities
+% misc + various utilities + organize later
 % -------------------------------------------------------------------------
 % I really should organize this
 
 % You get confused often
 \def\quest#1{ {\boldmath \textbf{\textcolor{BrickRed}{#1}}} }
 
-% pmod that allows for exponents
+% pmod that scales for exponents
 \renewcommand{\pmod}[1]{~\pqty{\text{mod~}{#1}}}
-
-% "such that" gets used alot in math mode
-\def\suchthat{\text{ such that }}
 
 % Thicc sum and prod from @mniip#9046 on Discord
 % FIXME: These don't work (yet) with non-cm fonts
@@ -452,6 +435,21 @@ qed=\qedsymbol{}
         \end{minipage}
     }
 }
+
+% Lowercase mathcal \mathcalb
+% From https://sarielhp.org/blog/2022/01/11/mathcal-for-small-letters/
+\DeclareFontFamily{U}{BOONDOX-calo}{\skewchar\font=45 }
+\DeclareFontShape{U}{BOONDOX-calo}{m}{n}{
+  <-> s*[1.05] BOONDOX-r-calo}{}
+\DeclareFontShape{U}{BOONDOX-calo}{b}{n}{
+  <-> s*[1.05] BOONDOX-b-calo}{}
+\DeclareMathAlphabet{\mathcalb}{U}{BOONDOX-calo}{m}{n}
+\SetMathAlphabet{\mathcalb}{bold}{U}{BOONDOX-calo}{b}{n}
+\DeclareMathAlphabet{\mathbcalb}{U}{BOONDOX-calo}{b}{n}
+
+% Symbols from TAOCP
+% ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/manfnt/manfnt.pdf
+\usepackage{manfnt}
 
 % ----------------------------------------------------------------------
 %  Dangerous bend environments, stolen from TeXbook and slightly
