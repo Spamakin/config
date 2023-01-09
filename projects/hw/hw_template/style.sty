@@ -41,10 +41,11 @@
 \DTMsetup{datesep=/}
 \DTMsetdatestyle{mdyy}
 \usepackage{xfrac}
-\usepackage{hyperref}
 \usepackage{float}
 \usepackage[backend=biber, style=alphabetic]{biblatex}
 \usepackage{microtype}  % Do I notice a difference? Probably not
+\usepackage{hyperref}
+\usepackage{cleveref}
 
 % -------------------------------------------------------------------------
 %  Formatting junk
@@ -83,12 +84,17 @@
     {0.5ex plus 1ex minus .2ex}     % before (idk what the plus minus is)
     {10pt}                          % after
 
+% Customize how hyperlinks look
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
+    linkcolor=cyan,
     filecolor=magenta,
     urlcolor=cyan,
 }
+
+% cref counters
+\crefname{g@linecounter}{Line}{Lines}
+\creflabelformat{g@linecounter}{#2#1#3}
 
 \pdfstringdefDisableCommands{\let\boldmath\relax} % allow \boldmath in section titles
 
