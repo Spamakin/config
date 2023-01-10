@@ -22,26 +22,35 @@
 % -------------------------------------------------------------------------
 %  Packages
 % -------------------------------------------------------------------------
+
 % TODO: SORT THIS MESS
 
 \let\circledS\undefined     % Use circledS from amssymb
-\usepackage{amsmath, amsthm, stmaryrd, mathtools, physics}
+\usepackage{latexsym, amsmath, amsthm, stmaryrd, mathtools, physics}
 \usepackage{thmtools}
+\usepackage[T1]{fontenc}
 \usepackage[dvipsnames,usenames,cmyk]{xcolor}
 \usepackage{indentfirst}    % Honestly not sure why this isn't default behavior
 \usepackage{centernot}
 \usepackage{graphicx}
 \usepackage{braket}
-\usepackage{tabularx}
+\usepackage{titlesec}
 \usepackage{titling}
-\usepackage{enumerate}
+\usepackage[indent]{parskip}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{framed}
 \usepackage{listofitems}
+\usepackage{booktabs}
 \usepackage{optidef}
+\usepackage{xcolor}
 \usepackage{datetime2}
 \DTMsetup{datesep=/}
 \DTMsetdatestyle{mdyy}
 \usepackage{xfrac}
 \usepackage{float}
+\usepackage[margin = 0.75in]{geometry}
+\usepackage[utf8]{inputenc}
 \usepackage[backend=biber, style=alphabetic]{biblatex}
 \usepackage{microtype}  % Do I notice a difference? Probably not
 \usepackage{hyperref}
@@ -50,13 +59,9 @@
 % -------------------------------------------------------------------------
 %  Formatting junk
 % -------------------------------------------------------------------------
-\usepackage[margin = 0.75in]{geometry}
-\usepackage[utf8]{inputenc}
 
 \renewcommand{\baselinestretch}{1.4}
-\setlength{\parskip}{1em}
 
-\usepackage{titlesec}
 \titleformat{\section}
     {\large\bfseries}
     {}{}{}
@@ -64,7 +69,7 @@
 \titlespacing{\section}
     {0pt}       % left
     {\parskip}  % before
-    {-\parskip} % after
+    {0pt} % after
 
 \titleformat{\subsection}[runin]
     {\normalfont\normalsize\bfseries}
@@ -92,10 +97,6 @@
     urlcolor=cyan,
 }
 
-% cref counters
-\crefname{g@linecounter}{Line}{Lines}
-\creflabelformat{g@linecounter}{#2#1#3}
-
 \pdfstringdefDisableCommands{\let\boldmath\relax} % allow \boldmath in section titles
 
 % Header Macro
@@ -103,38 +104,39 @@
 \DTMsavenow{now}
 \date{Last Edited on $\today$ at \DTMfetchhour{now}:\DTMfetchminute{now}}
 \newcommand\header[1][\thetitle]{%
-    \begin{table}[htbp]
-    {\renewcommand{\arraystretch}{1.3}%
-        \begin{tabularx}{\textwidth}{|X r|}
-        \hline
-        \LARGE#1        & \LARGE Anakin Dey \\[-10pt]
-        \thedate        &                   \\
-        \hline
-        \end{tabularx}}
-        \vspace{-25pt}
-    \end{table}
+  \begin{framed}
+    \begin{center}
+      { \renewcommand{\arraystretch}{1.3}
+        \addtolength{\parskip}{-1.5em}
+          \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+            \LARGE#1        & \LARGE \theauthor \\[-10pt]
+            \thedate        &                   \\[-10pt]
+          \end{tabular*}
+        \addtolength{\parskip}{1.5em}}
+    \end{center}
+  \end{framed}
 }
 
 % ---- THEOREM & LEMMA ENVIRONMENTS ----
 \declaretheoremstyle[
-spaceabove=\topsep,
-spacebelow=\topsep,
-headindent=0pt,
-headfont=\bfseries,
-postheadspace=5pt plus 1pt minus 1pt,
-headpunct=\(\boldmath \colon\),
-notefont=\bfseries,
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headindent=0pt,
+    headfont=\bfseries,
+    postheadspace=5pt plus 1pt minus 1pt,
+    headpunct=\(\boldmath \colon\),
+    notefont=\bfseries,
 ]{theorem}
 
 \declaretheoremstyle[
-spaceabove=\topsep,
-spacebelow=\topsep,
-headindent=0pt,
-headfont=\bfseries,
-postheadspace=5pt plus 1pt minus 1pt,
-headpunct=\(\boldmath \colon\),
-notefont=\bfseries,
-qed=\qedsymbol{}
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headindent=0pt,
+    headfont=\bfseries,
+    postheadspace=5pt plus 1pt minus 1pt,
+    headpunct=\(\boldmath \colon\),
+    notefont=\bfseries,
+    qed=\qedsymbol{}
 ]{solution}
 
 \declaretheorem[style=theorem, name=Theorem]{thrm}
@@ -153,11 +155,11 @@ qed=\qedsymbol{}
 \def\eg{e.g.}
 \def\vitae{vit\ae{}}
 \def\apriori{a~priori}
-\def\aposteriori{a~posteriori}  % I did not know this was a thing
+\def\aposteriori{a~posteriori}      % I did not know this was a thing
 
 % ---- PROPER NAMES (because I'm lazy) ----
-\def\Benes{Bene\v{s}}		                                    % ...network
-\def\Bezier{B\'ezier}		                                    % ...spline/curve/surface
+\def\Benes{Bene\v{s}}		                                        % ...network
+\def\Bezier{B\'ezier}		                                        % ...spline/curve/surface
 \def\Bjorner{Bj\"orner}
 \def\Bochis{Bochi\c{s}}		                                    % Daciana
 \def\Boruvka{Bor\.uvka}		                                    % ...'s MST algorithm
@@ -165,48 +167,48 @@ qed=\qedsymbol{}
 \def\Bronnimann{Br\"onnimann}
 \def\Herve{Herv\'e}
 \def\Bruckner{Br\"uckner}
-\def\Caratheodory{Carath\'eodory}	                            % Constantin
-\def\Chvatal{Chv\'atal} \def\Vasek{Va\v{s}ek} \def\Joao{Jo\~ao} % Compa
-\def\Cortes{Cort\'es}		                                    % Carmen
-\def\Dujmovic{Dujmovi\'c}	                                    % Vida
+\def\Caratheodory{Carath\'eodory}	                                % Constantin
+\def\Chvatal{Chv\'atal} \def\Vasek{Va\v{s}ek} \def\Joao{Jo\~ao}     % Compa
+\def\Cortes{Cort\'es}		                                        % Carmen
+\def\Dujmovic{Dujmovi\'c}	                                        % Vida
 \def\Fredo{Fr\'edo}	                                            % Durand
 \def\Erdos{Erd\H{o}s} \def\Pal{P\'al}
-\def\Frechet{Fr\'echet}                                         % ... distance
+\def\Frechet{Fr\'echet}                                             % ... distance
 \def\Furedi{F\"uredi} \def\Zoltan{Zolt\'an}
 \def\Grobner{Gr\"obner}		                                    % ... basis
-\def\Grunbaum{Gr\"unbaum}	                                    % Branko
-\def\Hanoi{Hano\"\i}		                                    % Tower of...
-\def\Jarnik{Jarn\a'{\i}k}	                                    % ...'s (`Prim's') MST algorithm
+\def\Grunbaum{Gr\"unbaum}	                                        % Branko
+\def\Hanoi{Hano\"\i}		                                        % Tower of...
+\def\Jarnik{Jarn\a'{\i}k}	                                        % ...'s (`Prim's') MST algorithm
 \def\Komlos{Koml\'os}
 \def\Kovari{K\"ov\'ari}
 \def\Lovasz{Lov\'asz} \def\Laszlo{L\'aszl\'o}
 \def\Matousek{Matou\v{s}ek} \def\Jiri{Ji\v{r}\'\i}
 \def\Mnev{Mn\"ev}
-\def\Mobius{M\"obius}		                                    % ... strip/transformation/function
+\def\Mobius{M\"obius}		                                        % ... strip/transformation/function
 \def\Mucke{M\"ucke}		                                        % Ernst
 \def\ODunliang{\'O'D\'unliang}
 \def\Oleinik{Ole\u{\i}nik}
-\def\Janos{J\'anos}                                             % Pach
+\def\Janos{J\'anos}                                                 % Pach
 \def\Palasti{Pal\'asti}
 \def\Belen{Bel\'en}	                                            % Palop
 \def\Petrovskii{Petrovski\u{\i}}
 \def\Pinar{P\i nar}		                                        % Ali
 \def\Plucker{Pl\"ucker}		                                    % ... coordinates
-\def\Poincare{Poincar\'e}	                                    % ... duality/halfplane
-\def\Gunter{G\"unter}                                           % Rote, Ziegler
+\def\Poincare{Poincar\'e}	                                        % ... duality/halfplane
+\def\Gunter{G\"unter}                                               % Rote, Ziegler
 \def\Sacristan{Sacrist\'an}	                                    % Vera
 \def\Saskin{\v{S}a\v{s}kin}
 \def\Schomer{Sch\"omer}
-\def\Schonhardt{Sch\"onhardt}	                                % ... polyhedron
+\def\Schonhardt{Sch\"onhardt}	                                    % ... polyhedron
 \def\Sos{S\'os}
 \def\Stackel{St\"ackel}		                                    % Paul
 \def\Szekely{Sz\'ekely}
 \def\Szemeredi{Szemer\'edi}
 \def\Toth{T\'{o}th}		                                        % Geza
 \def\Turan{Tur\'an}
-\def\Ungor{\"Ung\"or}		                                    % Alper
-\def\Voronoi{Vorono\"i}		                                    % ... diagram [for francophile pedants only]
-\def\Godel{G\"odel}                                             % The reason we don't know anything
+\def\Ungor{\"Ung\"or}		                                        % Alper
+\def\Voronoi{Vorono\"\i}		                                    % ... diagram [for francophile pedants only]
+\def\Godel{G\"odel}                                                 % The reason we don't know anything
 
 % ---- OPERATORS ----
 \DeclareMathOperator{\ord}{ord}
@@ -218,6 +220,7 @@ qed=\qedsymbol{}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Emb}{Emb}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\red}{red}
 \DeclareMathOperator{\poly}{poly}
 \DeclareMathOperator{\mdeg}{multideg}
 \DeclareMathOperator{\lc}{\textsc{lc}}
@@ -265,7 +268,6 @@ qed=\qedsymbol{}
 \def\true{\textsc{True}}
 \def\false{\textsc{False}}
 
-\def\red{\text{red}}                                % reduced
 
 % ---- RELATORS & ARROWS ----
 \def\defeq{\coloneqq}
@@ -334,8 +336,15 @@ qed=\qedsymbol{}
 % Enclosures
 % -------------------------------------------------------------------------
 
+% You get confused often
+\def\quest#1{ {\boldmath \textbf{\textcolor{BrickRed}{#1}}} }
+
+% pmod that scales for exponents
+\renewcommand{\pmod}[1]{~\pqty{\text{mod~}{#1}}}
+
 % magic for cycle notation
 % https://tex.stackexchange.com/questions/135868/permutation-cycle-notation
+% Can take optional replacement for ~ such as \cycle[\;]{1, 2, 3}
 \newcommand\cycle[2][~]{%
   \readlist\thecycle{#2}%
   \left(\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i}\right)%
@@ -349,6 +358,7 @@ qed=\qedsymbol{}
 % Try \Prob{x | y} versus \Prob{x} and \EV{x | y} versus \EV{x}
 % Also for encodings / presentations
 % Source code stolen from braket.sty
+% TODO: cut down on code duplication
 {\catcode`\|=\active
   \xdef\Prob{\protect\expandafter\noexpand\csname Prob \endcsname}
   \expandafter\gdef\csname Prob \endcsname#1{\probname\kern-1pt\left(%
@@ -393,11 +403,6 @@ qed=\qedsymbol{}
 % -------------------------------------------------------------------------
 % I really should organize this
 
-% You get confused often
-\def\quest#1{ {\boldmath \textbf{\textcolor{BrickRed}{#1}}} }
-
-% pmod that scales for exponents
-\renewcommand{\pmod}[1]{~\pqty{\text{mod~}{#1}}}
 
 % Thicc sum and prod from @mniip#9046 on Discord
 % FIXME: These don't work (yet) with non-cm fonts
