@@ -134,3 +134,5 @@
 
 ;; Modeline settings
 (setq doom-modeline-buffer-file-name-style 'buffer-name)
+
+(setq fancy-splash-image (concat doom-private-dir "cacochan.png"))
