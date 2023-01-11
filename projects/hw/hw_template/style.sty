@@ -15,6 +15,9 @@
 \usepackage{sourcesanspro}                      % Not sure what this does
 \usepackage{inconsolata}                        % \texttt font
 
+% Other font ideas to play with
+% https://mathweb.ucsd.edu/~msharpe/mathsamples.pdf
+
 % -------------------------------------------------------------------------
 %  Packages
 % -------------------------------------------------------------------------
@@ -167,65 +170,67 @@
 % -------------------------------------------------------------------------
 
 % ---- LATIN ----
-\def\etal{et~al.}
-\def\ie{i.e.}
-\def\eg{e.g.}
-\def\vitae{vit\ae{}}
-\def\apriori{a~priori}
-\def\aposteriori{a~posteriori}  % I did not know this was a thing
+\newcommand*\etal{et~al.}
+\newcommand*\ie{i.e.}
+\newcommand*\eg{e.g.}
+\newcommand*\vitae{vit\ae{}}
+\newcommand*\apriori{a~priori}
+\newcommand*\aposteriori{a~posteriori}  % I did not know this was a thing
 
 % ---- PROPER NAMES (because I'm lazy) ----
-\def\Benes{Bene\v{s}}		                                        % ...network
-\def\Bezier{B\'ezier}		                                        % ...spline/curve/surface
-\def\Bjorner{Bj\"orner}
-\def\Bochis{Bochi\c{s}}		                                    % Daciana
-\def\Boruvka{Bor\.uvka}		                                    % ...'s MST algorithm
-\def\Bragger{Br\"agger}
-\def\Bronnimann{Br\"onnimann}
-\def\Herve{Herv\'e}
-\def\Bruckner{Br\"uckner}
-\def\Caratheodory{Carath\'eodory}	                                % Constantin
-\def\Chvatal{Chv\'atal} \def\Vasek{Va\v{s}ek} \def\Joao{Jo\~ao}     % Compa
-\def\Cortes{Cort\'es}		                                        % Carmen
-\def\Dujmovic{Dujmovi\'c}	                                        % Vida
-\def\Fredo{Fr\'edo}	                                            % Durand
-\def\Erdos{Erd\H{o}s} \def\Pal{P\'al}
-\def\Frechet{Fr\'echet}                                             % ... distance
-\def\Furedi{F\"uredi} \def\Zoltan{Zolt\'an}
-\def\Grobner{Gr\"obner}		                                    % ... basis
-\def\Grunbaum{Gr\"unbaum}	                                        % Branko
-\def\Hanoi{Hano\"\i}		                                        % Tower of...
-\def\Jarnik{Jarn\a'{\i}k}	                                        % ...'s (`Prim's') MST algorithm
-\def\Komlos{Koml\'os}
-\def\Kovari{K\"ov\'ari}
-\def\Lovasz{Lov\'asz} \def\Laszlo{L\'aszl\'o}
-\def\Matousek{Matou\v{s}ek} \def\Jiri{Ji\v{r}\'\i}
-\def\Mnev{Mn\"ev}
-\def\Mobius{M\"obius}		                                        % ... strip/transformation/function
-\def\Mucke{M\"ucke}		                                        % Ernst
-\def\ODunliang{\'O'D\'unliang}
-\def\Oleinik{Ole\u{\i}nik}
-\def\Janos{J\'anos}                                                 % Pach
-\def\Palasti{Pal\'asti}
-\def\Belen{Bel\'en}	                                            % Palop
-\def\Petrovskii{Petrovski\u{\i}}
-\def\Pinar{P\i nar}		                                        % Ali
-\def\Plucker{Pl\"ucker}		                                    % ... coordinates
-\def\Poincare{Poincar\'e}	                                        % ... duality/halfplane
-\def\Gunter{G\"unter}                                               % Rote, Ziegler
-\def\Sacristan{Sacrist\'an}	                                    % Vera
-\def\Saskin{\v{S}a\v{s}kin}
-\def\Schomer{Sch\"omer}
-\def\Schonhardt{Sch\"onhardt}	                                    % ... polyhedron
-\def\Sos{S\'os}
-\def\Stackel{St\"ackel}		                                    % Paul
-\def\Szekely{Sz\'ekely}
-\def\Szemeredi{Szemer\'edi}
-\def\Toth{T\'{o}th}		                                        % Geza
-\def\Turan{Tur\'an}
-\def\Ungor{\"Ung\"or}		                                        % Alper
-\def\Voronoi{Vorono\"\i}		                                    % ... diagram [for francophile pedants only]
-\def\Godel{G\"odel}                                                 % The reason we don't know anything
+\newcommand*\Benes{Bene\v{s}}		                            % ...network
+\newcommand*\Bezier{B\'ezier}		                            % ...spline/curve/surface
+\newcommand*\Bjorner{Bj\"orner}
+\newcommand*\Bochis{Bochi\c{s}}		                        % Daciana
+\newcommand*\Boruvka{Bor\.uvka}		                        % ...'s MST algorithm
+\newcommand*\Bragger{Br\"agger}
+\newcommand*\Bronnimann{Br\"onnimann}
+\newcommand*\Herve{Herv\'e}
+\newcommand*\Bruckner{Br\"uckner}
+\newcommand*\Caratheodory{Carath\'eodory}	                    % Constantin
+\newcommand*\Chvatal{Chv\'atal}
+    \newcommand*\Vasek{Va\v{s}ek}
+        \newcommand*\Joao{Jo\~ao}                               % Compa
+\newcommand*\Cortes{Cort\'es}		                            % Carmen
+\newcommand*\Dujmovic{Dujmovi\'c}	                            % Vida
+\newcommand*\Fredo{Fr\'edo}	                                % Durand
+\newcommand*\Erdos{Erd\H{o}s} \def\Pal{P\'al}
+\newcommand*\Frechet{Fr\'echet}                                 % ... distance
+\newcommand*\Furedi{F\"uredi} \def\Zoltan{Zolt\'an}
+\newcommand*\Grobner{Gr\"obner}		                        % ... basis
+\newcommand*\Grunbaum{Gr\"unbaum}	                            % Branko
+\newcommand*\Hanoi{Hano\"\i}		                            % Tower of...
+\newcommand*\Jarnik{Jarn\a'{\i}k}	                            % ...'s (`Prim's') MST algorithm
+\newcommand*\Komlos{Koml\'os}
+\newcommand*\Kovari{K\"ov\'ari}
+\newcommand*\Lovasz{Lov\'asz} \def\Laszlo{L\'aszl\'o}
+\newcommand*\Matousek{Matou\v{s}ek} \def\Jiri{Ji\v{r}\'\i}
+\newcommand*\Mnev{Mn\"ev}
+\newcommand*\Mobius{M\"obius}		                            % ... strip/transformation/function
+\newcommand*\Mucke{M\"ucke}		                            % Ernst
+\newcommand*\ODunliang{\'O'D\'unliang}
+\newcommand*\Oleinik{Ole\u{\i}nik}
+\newcommand*\Janos{J\'anos}                                     % Pach
+\newcommand*\Palasti{Pal\'asti}
+\newcommand*\Belen{Bel\'en}	                                % Palop
+\newcommand*\Petrovskii{Petrovski\u{\i}}
+\newcommand*\Pinar{P\i nar}		                            % Ali
+\newcommand*\Plucker{Pl\"ucker}		                        % ... coordinates
+\newcommand*\Poincare{Poincar\'e}	                            % ... duality/halfplane
+\newcommand*\Gunter{G\"unter}                                   % Rote, Ziegler
+\newcommand*\Sacristan{Sacrist\'an}	                        % Vera
+\newcommand*\Saskin{\v{S}a\v{s}kin}
+\newcommand*\Schomer{Sch\"omer}
+\newcommand*\Schonhardt{Sch\"onhardt}	                        % ... polyhedron
+\newcommand*\Sos{S\'os}
+\newcommand*\Stackel{St\"ackel}		                        % Paul
+\newcommand*\Szekely{Sz\'ekely}
+\newcommand*\Szemeredi{Szemer\'edi}
+\newcommand*\Toth{T\'{o}th}		                            % Geza
+\newcommand*\Turan{Tur\'an}
+\newcommand*\Ungor{\"Ung\"or}		                            % Alper
+\newcommand*\Voronoi{Vorono\"\i}		                        % ... diagram [for francophile pedants only]
+\newcommand*\Godel{G\"odel}                                     % The reason we don't know anything
 
 % -------------------------------------------------------------------------
 %  Math operators and symbols
@@ -248,81 +253,78 @@
 \DeclareMathOperator{\lm}{\textsc{lm}}
 \DeclareMathOperator{\lt}{\textsc{lt}}
 
-\def\argmax{\operatornamewithlimits{arg\,max}}
-\def\argmin{\operatornamewithlimits{arg\,min}}
+\newcommand*\argmax{\operatornamewithlimits{arg\,max}}
+\newcommand*\argmin{\operatornamewithlimits{arg\,min}}
 
 % --- Cheap displaystyle operators ---
-\def\Frac#1#2{{\dfrac{#1}{#2}}}
-\def\Sum{\sum\limits}
-\def\Prod{\prod\limits}
-\def\Bigcup{\bigcup\limits}
-\def\Bigcap{\bigcap\limits}
-\def\Bigvee{\bigvee\limits}
-\def\Bigwedge{\bigwedge\limits}
-\def\Int{\int\limits}
-\def\Lim{\lim\limits}
-\def\Max{\max\limits}
-\def\Min{\min\limits}
-\def\Argmax{\argmax\limits}
-\def\Argmin{\argmin\limits}
-\def\Sup{\sup\limits}
-\def\Inf{\inf\limits}
-\def\Limsup{\limsup\limits}
-\def\Liminf{\liminf\limits}
-\def\Sfrac#1#2{{\displaystyle\sfrac{#1}{#2}}}
+\newcommand*\Frac[2]{{\dfrac{#1}{#2}}}
+\newcommand*\Sum{\sum\limits}
+\newcommand*\Prod{\prod\limits}
+\newcommand*\Bigcup{\bigcup\limits}
+\newcommand*\Bigcap{\bigcap\limits}
+\newcommand*\Bigvee{\bigvee\limits}
+\newcommand*\Bigwedge{\bigwedge\limits}
+\newcommand*\Int{\int\limits}
+\newcommand*\Lim{\lim\limits}
+\newcommand*\Max{\max\limits}
+\newcommand*\Min{\min\limits}
+\newcommand*\Argmax{\argmax\limits}
+\newcommand*\Argmin{\argmin\limits}
+\newcommand*\Sup{\sup\limits}
+\newcommand*\Inf{\inf\limits}
+\newcommand*\Limsup{\limsup\limits}
+\newcommand*\Liminf{\liminf\limits}
+\newcommand*\Sfrac[2]{{\displaystyle\sfrac{#1}{#2}}}
 
 % ---- SYMBOLS ----
-\def\N{\mathbb{N}}
-\def\Z{\mathbb{Z}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\H{\mathbb{H}}
-\def\F{\mathbb{F}}
-\def\E{\mathbb{E}}
+\newcommand*\N{\mathbb{N}}
+\newcommand*\Z{\mathbb{Z}}
+\newcommand*\Q{\mathbb{Q}}
+\newcommand*\R{\mathbb{R}}
+\newcommand*\C{\mathbb{C}}
+\newcommand*\F{\mathbb{F}}
+\newcommand*\E{\mathbb{E}}
 
-\def\a{\alpha}
-\def\b{\beta}
-\def\d{\delta}
-\def\e{\varepsilon}
+% \newcommand*\a{\alpha}
+% \newcommand*\b{\beta}
+% \newcommand*\d{\delta}
+\newcommand*\e{\varepsilon}
 
-\def\true{\textsc{True}}
-\def\false{\textsc{False}}
+\newcommand*\true{\textsc{True}}
+\newcommand*\false{\textsc{False}}
 
 % ---- RELATORS & ARROWS ----
-\def\defeq{\coloneqq}
-\def\into{\DOTSB\hookrightarrow}		            % = one-to-one
-\def\onto{\DOTSB\twoheadrightarrow}
-\def\inonto{\DOTSB\lhook\joinrel\twoheadrightarrow}
-\def\from{\leftarrow}
-\def\tofrom{\leftrightarrow}
-\def\fromto{\tofrom}                                % This is mostly for my own amusement
-\def\mapsfrom{\mathrel{\reflectbox{$\mapsto$}}}
-\def\longmapsfrom{\mathrel{\reflectbox{$\longmapsto$}}}
-\def\sample{\overset{\$}{\from}}
-\def\notimplies{\centernot\implies}
-\def\acts{\curvearrowright}
-\def\normal{\trianglelefteq}
-\def\pluseq{\mathrel{+}=}
-\def\timeseq{\mathrel{*}=}
-\def\minuseq{\mathrel{-}=}
-\def\diveq{\mathrel{/}=}
-\def\child{\downarrow}
-\def\ancestor{\Uparrow}
-\def\contains{\supset}
-\def\containseq{\supseteq}
-\def\containsneq{\supset}
+\newcommand*\defeq{\coloneqq}
+\newcommand*\into{\DOTSB\hookrightarrow}		            % = one-to-one
+\newcommand*\onto{\DOTSB\twoheadrightarrow}
+\newcommand*\inonto{\DOTSB\lhook\joinrel\twoheadrightarrow}
+\newcommand*\from{\leftarrow}
+\newcommand*\tofrom{\leftrightarrow}
+\newcommand*\fromto{\tofrom}                                % This is mostly for my own amusement
+\newcommand*\sample{\overset{\$}{\from}}
+\newcommand*\notimplies{\centernot\implies}
+\newcommand*\acts{\curvearrowright}
+\newcommand*\normal{\trianglelefteq}
+\newcommand*\pluseq{\mathrel{+}=}
+\newcommand*\timeseq{\mathrel{*}=}
+\newcommand*\minuseq{\mathrel{-}=}
+\newcommand*\diveq{\mathrel{/}=}
+\newcommand*\child{\downarrow}
+\newcommand*\ancestor{\Uparrow}
+\newcommand*\contains{\supset}
+\newcommand*\containseq{\supseteq}
+\newcommand*\containsneq{\supset}
 
 % -------------------------------------------------------------------------
 % Enclosures
 % -------------------------------------------------------------------------
 
 % ---- FUNCTIONS ----
-\newcommand\floor[1]{%
+\newcommand*\floor[1]{%
     \left\lfloor #1 \right\rfloor
 }
 
-\newcommand\ceil[1]{%
+\newcommand*\ceil[1]{%
     \left\lceil #1 \right\rceil
   }
 
@@ -330,35 +332,35 @@
 \renewcommand{\pmod}[1]{~\pqty{\text{mod~}{#1}}}
 
 % ---- COMPLEXITY MACROS ----
-\newcommand\bigO[1]{%                       % Constants no longer matter
+\newcommand*\bigO[1]{%                       % Constants no longer matter
     O\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\littleo[1]{%
+\newcommand*\littleo[1]{%
     o\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\bigTheta[1]{%
+\newcommand*\bigTheta[1]{%
     \theta\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\bigOmega[1]{%
+\newcommand*\bigOmega[1]{%
     \Omega\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\bigOT[1]{%                      %logarithms no longer matter
+\newcommand*\bigOT[1]{%                      %logarithms no longer matter
     \widetilde{O}\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\littleoT[1]{%
+\newcommand*\littleoT[1]{%
     \tilde{o}\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\bigOStar[1]{%                   % polynomials no longer matter
+\newcommand*\bigOStar[1]{%                   % polynomials no longer matter
     {O^{*}}\kern-1.5pt\left(#1\right)
 }
 
-\newcommand\littleoStar[1]{%
+\newcommand*\littleoStar[1]{%
     {o^{*}}\kern-1.5pt\left(#1\right)
 }
 
@@ -402,12 +404,12 @@
 }
 
 % We use the same notation for finitely generated groups / ideals
-\newcommand{\gen}{\encode}
+\newcommand*{\gen}{\encode}
 
 % magic for cycle notation
 % https://tex.stackexchange.com/questions/135868/permutation-cycle-notation
 % Can take optional replacement for ~ such as \cycle[\;]{1, 2, 3}
-\newcommand\cycle[2][~]{%
+\newcommand*\cycle[2][~]{%
   \readlist\thecycle{#2}%
   \left(\foreachitem\i\in\thecycle{\ifnum\icnt=1\else#1\fi\i}\right)%
 }
@@ -418,7 +420,7 @@
 % -------------------------------------------------------------------------
 
 % You get confused often
-\def\quest#1{ {\boldmath \color{BrickRed} $\langle \langle$ \textbf{#1} $\rangle \rangle$} }
+\newcommand\quest[1]{ {\boldmath \color{BrickRed} $\langle \langle$ \textbf{#1} $\rangle \rangle$} }
 
 % Thicc sum and prod from @mniip#9046 on Discord
 % FIXME: These don't work (yet) with non-cm fonts
