@@ -42,6 +42,7 @@
 % ---- Formatting the page ----
 \usepackage[margin = 0.75in]{geometry}
 \usepackage[dvipsnames,usenames,cmyk]{xcolor}
+\usepackage{setspace}
 
 % ---- Formatting the title ----
 \usepackage{datetime2}
@@ -74,7 +75,7 @@
 %  Formatting junk
 % -------------------------------------------------------------------------
 
-\renewcommand{\baselinestretch}{1.4}                % More line spacing
+\setstretch{1.4}                                    % More line spacing
 \pdfstringdefDisableCommands{\let\boldmath\relax}   % allow \boldmath in section titles
 
 % ---- TITLE ----
@@ -313,7 +314,7 @@
 \newcommand*\ancestor{\Uparrow}
 \newcommand*\contains{\supset}
 \newcommand*\containseq{\supseteq}
-\newcommand*\containsneq{\supset}
+\newcommand*\containsneq{\supsetneq}
 
 % -------------------------------------------------------------------------
 % Enclosures
