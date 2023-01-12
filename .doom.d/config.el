@@ -87,6 +87,12 @@
 ;; Emacs now plays with the clipboard
 (setq select-enable-clipboard t)
 
+;; Custom splash image
+(setq fancy-splash-image (concat doom-private-dir "cacochan.png"))
+
+;; Remove shortcuts on splashscreen
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+
 ;; Literate mode for agda go brrrrr
 (add-to-list 'auto-mode-alist '("\\.lagda.md\\'" . agda2-mode))
 
@@ -99,7 +105,6 @@
     (split-window-horizontally)
     (other-window 1)
     (+vterm/here default-directory)))
-
 
 ;; Command to open vterm in a right window
 (defun vterm/split-left ()
@@ -130,9 +135,9 @@
 (setq grip-github-user "Spamakin")
 (setq grip-update-after-change nil)
 
+;; LaTeX doc-view
 (setq doc-view-resolution 200)
 
 ;; Modeline settings
 (setq doom-modeline-buffer-file-name-style 'buffer-name)
 
-(setq fancy-splash-image (concat doom-private-dir "cacochan.png"))
